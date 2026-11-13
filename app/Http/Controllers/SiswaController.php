@@ -86,4 +86,24 @@ class SiswaController extends Controller
             'message' => 'Berhasil menghapus data siswa',
         ]);
     }
+
+    public function bulkInsert(Request $request)
+    {
+        $data = $request->all();
+        //ubah passaword ke hash
+        foreach ($data as $key => $value) {
+            if (isset($value['password'])) {
+                $data[$key]['password'] = Hash::make($value['password']);
+            }
+        }
+
+        //mencari data berdasarkan id
+        $siswa = User::insertArraySiswa($data);
+
+        //menampilkan data berdasarkan id
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil menambah emua data data siswa',
+        ]);
+    }
 }

@@ -9,3 +9,7 @@ export const auth = ({ username, password }) => {
 export const getCurentUser = () => {
     return request().get("/api/currentUser")
 }
+
+export const logout = () => {
+    return request().get("/api/logout")
+}

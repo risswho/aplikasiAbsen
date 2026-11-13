@@ -4,12 +4,8 @@ import { Toaster } from "sonner"
 
 const Main = () => {
     return (
-        <div>
-        <Routes>
-            <Route path="/" element={<Login />} />
-        </Routes>
-        
-        <Toaster/>
+        <div className="min-h-screen bg-[#E">
+
         </div>
     
     )

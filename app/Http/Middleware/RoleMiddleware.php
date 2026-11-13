@@ -24,12 +24,12 @@ class RoleMiddleware
             ], 401);
         }
 
-        if (! in_array($user->role, $roles, true)) {
+        if (! in_array($user->role, explode(',', $roles), true)) {
             return response()->json([
-                'message' => 'Forbidden',
+                'message' => 'Akses ditolak',
             ], 403);
         }
 
-        return redirect('/login');
+        return $next($request);
     }
 }
